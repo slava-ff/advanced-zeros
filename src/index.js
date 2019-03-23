@@ -37,7 +37,7 @@ module.exports = function getZerosCount(number, base) {
 
       /////////////// 3. делим number на каждый уникальный множитель /////////////////// ЗДЕСЬ ОШИБКА
       let count = 0;
-       for (let m = mnojiteli[i]; Math.floor(number/m) > 1; m=m*mnojiteli[i]) {  // 0 поставил вместо 1
+       for (let m = mnojiteli[i]; number/m > 1; m=m*mnojiteli[i]) {  // 0 поставил вместо 1
         count = count + Math.floor(number/m); 
         // 2 Варианта. либо math.floor отсекает не тогда когда надо, и теряем мелочи
         // либо забываем поделить еще раз, если делится. Хотя м=м*м разве так не делает?
