@@ -17,7 +17,7 @@ module.exports = function getZerosCount(number, base) {
       n++;
     }
   } while (n < baseTwo);
-  mnojiteli[j] = n;
+  if (base > 2) {mnojiteli[j] = n;}
   console.log('mnojiteli: ', mnojiteli);
 
   /////////////// 2. считаем одинаковые ///////////////////
@@ -39,10 +39,6 @@ module.exports = function getZerosCount(number, base) {
       let count = 0;
        for (let m = mnojiteli[i]; number/m > 1; m=m*mnojiteli[i]) {  // 0 поставил вместо 1
         count = count + Math.floor(number/m); 
-        // 2 Варианта. либо math.floor отсекает не тогда когда надо, и теряем мелочи
-        // либо забываем поделить еще раз, если делится. Хотя м=м*м разве так не делает?
-        // 100/2 = 50, оно больше 1, каунт = 50, 2*
-        // 
       }
       if (odinak !=0) {count = Math.floor(count/odinak);} // !!!!!!!!!
       
@@ -64,5 +60,3 @@ module.exports = function getZerosCount(number, base) {
   
 
 }
-
-//getZerosCount(70497638, 2);
